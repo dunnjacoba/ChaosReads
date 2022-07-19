@@ -1,1 +1,1 @@
-# Chaos Reads Middle tier
+# Chaos Reads: A book review site.
