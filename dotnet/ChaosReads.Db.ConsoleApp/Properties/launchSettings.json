@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "Sabio.Db.ConsoleApp": {
+    "ChaosReads.Db.ConsoleApp": {
       "commandName": "Project"
     },
     "Test Connection": {

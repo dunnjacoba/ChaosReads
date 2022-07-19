@@ -1,7 +1,12 @@
 import React from "react";
+import ControlledCarousel from "./Carousel";
 
 const Home = () => {
-  return <p>Home</p>;
+  return (
+    <>
+      <ControlledCarousel />
+    </>
+  );
 };
 
 export default Home;
