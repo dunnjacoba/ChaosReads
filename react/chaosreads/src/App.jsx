@@ -1,14 +1,20 @@
-import Home from "../src/components/Home";
-import "./App.css";
+import React, { Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import DefaultLayout from "./layout/Default";
+import Loader from "./layout/Loader";
 
-function App() {
+const loading = () => {
+  return <Loader />;
+};
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Home />
-      </header>
-    </div>
+    <Suspense loading={loading}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<DefaultLayout />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </Suspense>
   );
 }
-
-export default App;
