@@ -7,6 +7,8 @@ using ChaosReads.Data;
 using ChaosReads.Services;
 using ChaosReads.Web.Core.Services;
 using System;
+using ChaosReads.Services.Interfaces;
+using ChaosReads.Services.Books;
 
 namespace ChaosReads.Web.StartUp
 {
@@ -39,6 +41,8 @@ namespace ChaosReads.Web.StartUp
                 return new SqlDataProvider(connString);
             }
             );
+
+            services.AddSingleton<IBookService, BookService>();
 
             services.AddSingleton<IIdentityProvider<int>, WebAuthenticationService>();
 

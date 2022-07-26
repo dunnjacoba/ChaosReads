@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChaosReads.Data", "ChaosRea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChaosReads.Services", "ChaosReads.Services\ChaosReads.Services.csproj", "{108A579C-67E2-4E92-ACA8-8ECBDA6C7ECD}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChaosReads.Web.Api", "ChaosReads.Web.Api\ChaosReads.Web.Api.csproj", "{46E4E70D-34F8-4315-917D-AE900118AFAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{108A579C-67E2-4E92-ACA8-8ECBDA6C7ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{108A579C-67E2-4E92-ACA8-8ECBDA6C7ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{108A579C-67E2-4E92-ACA8-8ECBDA6C7ECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46E4E70D-34F8-4315-917D-AE900118AFAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46E4E70D-34F8-4315-917D-AE900118AFAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46E4E70D-34F8-4315-917D-AE900118AFAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46E4E70D-34F8-4315-917D-AE900118AFAE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

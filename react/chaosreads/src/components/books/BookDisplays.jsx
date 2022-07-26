@@ -1,10 +1,10 @@
 import React from "react";
 import Rating from "react-rating";
-import { TbStar } from "react-icons/tb";
+import { BsFillStarFill } from "react-icons/bs";
 import { FaPepperHot } from "react-icons/fa";
 import { Card } from "react-bootstrap";
 
-const BookDisplay = () => {
+const BookDisplay = (props) => {
   const changePage = (e) => {
     e.preventDefault();
     console.log(e);
@@ -20,25 +20,29 @@ const BookDisplay = () => {
     >
       <Card.Img
         variant="top"
-        src="https://s26162.pcdn.co/wp-content/uploads/2020/01/Sin-Eater-by-Megan-Campisi.jpg"
-        alt="Book cover of Sin Eater"
+        src={props?.reviewInfo?.bookCover}
+        alt="Book cover"
         className="mt-2"
         style={{ width: "17rem", height: "36rem" }}
       />
-      <Card.Title>Sin Eater</Card.Title>
+      <Card.Title>{props?.reviewInfo?.title}</Card.Title>
       <Card.Text>by Megan Campisi</Card.Text>
       <Card.Body>
         This is some text{" "}
         <div>
           <Rating
-            fullSymbol={<TbStar color="yellow" />}
-            emptySymbol={<TbStar />}
+            initialRating={props?.reviewInfo?.rating}
+            fullSymbol={<BsFillStarFill color="yellow" />}
+            emptySymbol={<BsFillStarFill color="black" />}
+            readonly
           />
         </div>
         <div>
           <Rating
+            initialRating={props?.reviewInfo?.spice}
             fullSymbol={<FaPepperHot color="red" />}
             emptySymbol={<FaPepperHot color="black" />}
+            readonly
           />
         </div>
       </Card.Body>

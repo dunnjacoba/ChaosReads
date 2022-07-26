@@ -10,7 +10,7 @@ namespace ChaosReads.Db.ConsoleApp
             //Here are two example connection strings. Please check with the wiki and video courses to help you pick an option
 
             //string connString = @"Data Source=ServerName_Or_IpAddress;Initial Catalog=DB_Name;User ID=User;Password=pass1!";
-            string connString = @"Data Source=ServerName_Or_IpAddress;Initial Catalog=DB_Name;User ID=User;Password=pass1!";
+            string connString = @"Data Source=MSI;Initial Catalog=ChaosReads;User ID=dunnjacoba;Password=Xrynthian0808";
 
             TestConnection(connString);
 
