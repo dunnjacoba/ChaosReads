@@ -26,9 +26,12 @@ const BookDisplay = (props) => {
         style={{ width: "17rem", height: "36rem" }}
       />
       <Card.Title>{props?.reviewInfo?.title}</Card.Title>
-      <Card.Text>by Megan Campisi</Card.Text>
+      <Card.Text>
+        by {props?.reviewInfo?.author[0].firstName}{" "}
+        {props?.reviewInfo?.author[0].lastName}
+      </Card.Text>
       <Card.Body>
-        This is some text{" "}
+        {props?.reviewInfo?.briefReview}{" "}
         <div>
           <Rating
             initialRating={props?.reviewInfo?.rating}

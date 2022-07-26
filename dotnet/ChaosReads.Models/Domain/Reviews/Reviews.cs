@@ -13,6 +13,8 @@ namespace ChaosReads.Models.Domain.Reviews
 
         public string Title { get; set; }
 
+        public List<Authors> Author { get; set; }
+
         public string BriefReview { get; set; }
 
         public string FullReview { get; set; }

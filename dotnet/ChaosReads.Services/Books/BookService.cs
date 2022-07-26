@@ -1,5 +1,6 @@
 ﻿using ChaosReads.Data;
 using ChaosReads.Data.Providers;
+using ChaosReads.Models.Domain.Books;
 using ChaosReads.Models.Domain.Reviews;
 using ChaosReads.Services.Interfaces;
 using System.Collections.Generic;
@@ -45,6 +46,7 @@ namespace ChaosReads.Services.Books
 
             model.Id = reader.GetSafeInt32(startingIndex++);
             model.Title = reader.GetSafeString(startingIndex++);
+            model.Author = reader.DeserializeObject<List<Authors>>(startingIndex++);
             model.BriefReview = reader.GetSafeString(startingIndex++);
             model.FullReview = reader.GetSafeString(startingIndex++);
             model.Rating = reader.GetSafeInt32(startingIndex++);
