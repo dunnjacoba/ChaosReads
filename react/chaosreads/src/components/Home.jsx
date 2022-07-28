@@ -20,8 +20,8 @@ const Home = () => {
 
   const MapReviews = (review) => {
     return (
-      <Col bg="dark">
-        <BookDisplay key={review.id} reviewInfo={review} />
+      <Col key={review.id} bg="dark">
+        <BookDisplay reviewInfo={review} />
       </Col>
     );
   };
