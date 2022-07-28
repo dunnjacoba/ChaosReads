@@ -4,33 +4,31 @@ import BookDisplay from "./books/BookDisplays";
 import bookServices from "../services/bookServices";
 
 const Home = () => {
-  const [review, setReview] = useState();
+  const [reviews, setReview] = useState([]);
   useEffect(() => {
     bookServices.getAllReviews().then(onGetAllSuccess).catch(onGetAllErr);
   }, []);
 
   const onGetAllSuccess = (response) => {
     console.log(response);
-    setReview(response.data.items[0]);
+    setReview(response.data.items);
   };
 
   const onGetAllErr = (err) => {
     console.error(err);
   };
+
+  const MapReviews = (review) => {
+    return (
+      <Col bg="dark">
+        <BookDisplay key={review.id} reviewInfo={review} />
+      </Col>
+    );
+  };
   return (
     <>
       <Container fluid className="m-6 p-4">
-        <Row>
-          <Col bg="dark">
-            <BookDisplay reviewInfo={review} />
-          </Col>{" "}
-          <Col>
-            <BookDisplay reviewInfo={review} />
-          </Col>{" "}
-          <Col>
-            <BookDisplay reviewInfo={review} />
-          </Col>{" "}
-        </Row>
+        <Row>{reviews.map(MapReviews)}</Row>
       </Container>
       <Container>
         <Row>

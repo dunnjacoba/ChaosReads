@@ -16,16 +16,16 @@ const BookDisplay = (props) => {
       text="light"
       onClick={changePage}
       className="shadow-lg border-2px mt-2 align-items-center"
-      style={{ width: "18rem" }}
+      style={{ width: "20rem" }}
     >
       <Card.Img
         variant="top"
         src={props?.reviewInfo?.bookCover}
         alt="Book cover"
-        className="mt-2"
-        style={{ width: "17rem", height: "36rem" }}
+        className="m-2 rounded"
+        style={{ width: "18rem", height: "36rem" }}
       />
-      <Card.Title>{props?.reviewInfo?.title}</Card.Title>
+      <Card.Title className="p-2">{props?.reviewInfo?.title}</Card.Title>
       <Card.Text>
         by {props?.reviewInfo?.author[0].firstName}{" "}
         {props?.reviewInfo?.author[0].lastName}
