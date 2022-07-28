@@ -1,7 +1,10 @@
 import React from "react";
+import Rating from "react-rating";
+import { BsFillStarFill } from "react-icons/bs";
+import { FaPepperHot } from "react-icons/fa";
 import { Form, Card, Col, Row, FormGroup } from "react-bootstrap";
 
-const StepOne = () => {
+const StepOne = (props) => {
   return (
     <Col>
       <Row>
@@ -35,6 +38,20 @@ const StepOne = () => {
             <Form.Group className="mb-3" controlId="spice">
               <Form.Check type="checkbox" label="Spicy?" />
             </Form.Group>
+            <div>
+              <Rating
+                onClick={props.starRating}
+                fullSymbol={<BsFillStarFill color="yellow" />}
+                emptySymbol={<BsFillStarFill color="black" />}
+              />
+            </div>
+            <div>
+              <Rating
+                onClick={props.spiceSelection}
+                fullSymbol={<FaPepperHot color="red" />}
+                emptySymbol={<FaPepperHot color="black" />}
+              />
+            </div>
           </Form>
         </Card>
       </Row>
