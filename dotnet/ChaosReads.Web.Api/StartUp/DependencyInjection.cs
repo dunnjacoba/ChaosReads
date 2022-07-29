@@ -44,6 +44,8 @@ namespace ChaosReads.Web.StartUp
 
             services.AddSingleton<IBookService, BookService>();
 
+            services.AddSingleton<IGenreService, GenreService>();
+
             services.AddSingleton<IIdentityProvider<int>, WebAuthenticationService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();

@@ -17,6 +17,16 @@ const NewReview = () => {
   };
 
   const navigate = useNavigate();
+
+  const finish = () => {
+    console.log("Clicked finish");
+    navigate("/");
+  };
+
+  const changePage = () => {
+    console.log("Changed");
+  };
+
   const mySteps = [
     {
       label: "Step 1",
@@ -37,13 +47,15 @@ const NewReview = () => {
     },
   ];
 
-  const finish = () => {
-    console.log("Clicked finish");
-    navigate("/");
-  };
   return (
     <div className="myWizard">
-      <Loki steps={mySteps} onFinish={finish} />
+      <Loki
+        steps={mySteps}
+        onNext={changePage}
+        onBack={changePage}
+        onFinish={finish}
+        noActions
+      />
     </div>
   );
 };

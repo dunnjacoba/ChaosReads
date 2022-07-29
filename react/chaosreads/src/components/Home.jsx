@@ -20,7 +20,7 @@ const Home = () => {
 
   const MapReviews = (review) => {
     return (
-      <Col key={review.id} bg="dark">
+      <Col key={`review_${review.id}`} bg="dark">
         <BookDisplay reviewInfo={review} />
       </Col>
     );
@@ -34,9 +34,7 @@ const Home = () => {
         <Row>
           <Card>
             <Card.Body>
-              <Card.Text>
-                This is the test that I'd love for your viewers to see!!
-              </Card.Text>
+              <Card.Text>Updated blurb.</Card.Text>
             </Card.Body>
           </Card>
         </Row>

@@ -1,13 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
+import genreServices from "../../services/genreServices";
 import { BsFillStarFill } from "react-icons/bs";
 import { FaPepperHot } from "react-icons/fa";
 import { Form, Card, Col, Row, FormGroup } from "react-bootstrap";
 
 const StepOne = (props) => {
+  const { onBack, backLabel, nextLabel, onNext } = props;
+
+  const [spice, setSpice] = useState(false);
+
+  const [state, setState] = useState({ genres: [] });
+
+  useEffect(() => {
+    genreServices
+      .getAllGenres()
+      .then(onGetAllGenresSuccess)
+      .catch(onGetAllGenresErr);
+  }, []);
+
+  const MapGenreOption = (genre) => {
+    return (
+      <option key={`genre_${genre.id}`} value={genre.id}>
+        {genre.name}
+      </option>
+    );
+  };
+
+  const onGetAllGenresSuccess = (response) => {
+    let genres = response.data.items;
+    setState((prevState) => {
+      let newState = { ...prevState };
+      newState.genres = genres;
+      return newState;
+    });
+  };
+
+  const onGetAllGenresErr = (err) => {
+    console.error(err);
+  };
+
+  const isSpicy = (e) => {
+    setSpice(e.target.checked);
+  };
+
   return (
-    <Col>
-      <Row>
+    <Row>
+      <Col>
         <Card className="m-4 p-2">
           <Form className="m-4 p-4">
             <Form.Group className="mb-3" controlId="bookTitle">
@@ -20,12 +59,7 @@ const StepOne = (props) => {
             </Form.Group>
             <FormGroup className="mb-3" controlId="genre">
               <Form.Label>Genre</Form.Label>
-              <Form.Select>
-                <option value={0}>Genre</option>
-                <option value={1}>Fantasy</option>
-                <option value={2}>Romance</option>
-                <option value={3}>Horror</option>
-              </Form.Select>
+              <Form.Select>{state.genres.map(MapGenreOption)}</Form.Select>
             </FormGroup>
             <Form.Group className="mb-3" controlId="briefReview">
               <Form.Label>Short Review</Form.Label>
@@ -36,26 +70,55 @@ const StepOne = (props) => {
               <Form.Control as="textarea" rows={3} />
             </Form.Group>
             <Form.Group className="mb-3" controlId="spice">
-              <Form.Check type="checkbox" label="Spicy?" />
+              <Form.Check
+                type="checkbox"
+                onChange={(e) => isSpicy(e)}
+                label="Spicy?"
+              />
             </Form.Group>
             <div>
-              <Rating
-                onClick={props.starRating}
-                fullSymbol={<BsFillStarFill color="yellow" />}
-                emptySymbol={<BsFillStarFill color="black" />}
-              />
+              <div>
+                <Rating
+                  onClick={props.starRating}
+                  fullSymbol={<BsFillStarFill color="yellow" />}
+                  emptySymbol={<BsFillStarFill color="black" />}
+                />
+              </div>
+              {spice && true && (
+                <div>
+                  <Rating
+                    onClick={props.spiceSelection}
+                    fullSymbol={<FaPepperHot color="red" />}
+                    emptySymbol={<FaPepperHot color="black" />}
+                  />
+                </div>
+              )}
             </div>
-            <div>
-              <Rating
-                onClick={props.spiceSelection}
-                fullSymbol={<FaPepperHot color="red" />}
-                emptySymbol={<FaPepperHot color="black" />}
-              />
+
+            <div className="button-group pt-3 row">
+              <div className="col-sm-1">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={onBack}
+                >
+                  {backLabel}
+                </button>
+              </div>
+              <div className="col-sm-1">
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  onClick={onNext}
+                >
+                  {nextLabel}
+                </button>
+              </div>
             </div>
           </Form>
         </Card>
-      </Row>
-    </Col>
+      </Col>{" "}
+    </Row>
   );
 };
 
