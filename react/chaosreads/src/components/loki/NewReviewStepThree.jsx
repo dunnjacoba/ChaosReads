@@ -9,29 +9,9 @@ const StepThree = (props) => {
       <Row>
         <Card className="m-4 p-2">
           <Form className="m-4 p-4">
-            <Form.Group className="mb-3" controlId="bookTitle">
-              <Form.Label>Title</Form.Label>
-              <Form.Control type="text" placeholder="Title" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="authorName">
-              <Form.Label>Author</Form.Label>
-              <Form.Control type="text" placeholder="Author Name" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="bookTitle">
-              <Form.Label>Title</Form.Label>
-              <Form.Control type="text" placeholder="Title" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="authorName">
-              <Form.Label>Author</Form.Label>
-              <Form.Control type="text" placeholder="Author Name" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="bookTitle">
-              <Form.Label>Title</Form.Label>
-              <Form.Control type="text" placeholder="Title" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="authorName">
-              <Form.Label>Author</Form.Label>
-              <Form.Control type="text" placeholder="Author Name" />
+            <Form.Group className="mb-3" controlId="coverImage">
+              <Form.Label>Cover Image</Form.Label>
+              <Form.Control type="file" placeholder="Cover Image" />
             </Form.Group>
             <div className="button-group pt-3 row">
               <div className="col-sm-1">

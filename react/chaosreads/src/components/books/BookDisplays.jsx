@@ -1,40 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
+import { useNavigate } from "react-router-dom";
 import { BsFillStarFill } from "react-icons/bs";
 import { FaPepperHot } from "react-icons/fa";
 import { Card } from "react-bootstrap";
 
 const BookDisplay = (props) => {
-  const changePage = (e) => {
-    e.preventDefault();
-    console.log(e);
+  const [reviewData, setReviewData] = useState();
+
+  useEffect(() => {
+    setReviewData(props.reviewInfo);
+  }, [props.reviewInfo]);
+
+  const navigate = useNavigate();
+
+  const onReviewClicked = () => {
+    navigate(`/review/${reviewData.id}`);
   };
 
   return (
     <Card
       bg="dark"
       text="light"
-      onClick={changePage}
+      onClick={onReviewClicked}
       className="shadow-lg border-2px mt-2 align-items-center"
       style={{ width: "20rem" }}
     >
       <Card.Img
         variant="top"
-        src={props?.reviewInfo?.bookCover}
+        src={reviewData?.bookCover}
         alt="Book cover"
         className="m-2 rounded"
         style={{ width: "18rem", height: "36rem" }}
       />
-      <Card.Title className="p-2">{props?.reviewInfo?.title}</Card.Title>
+      <Card.Title className="p-2">{reviewData?.title}</Card.Title>
       <Card.Text>
-        by {props?.reviewInfo?.author[0].firstName}{" "}
-        {props?.reviewInfo?.author[0].lastName}
+        by {reviewData?.author[0].firstName} {reviewData?.author[0].lastName}
       </Card.Text>
       <Card.Body>
         {props?.reviewInfo?.briefReview}{" "}
         <div>
           <Rating
-            initialRating={props?.reviewInfo?.rating}
+            initialRating={reviewData?.rating}
             fullSymbol={<BsFillStarFill color="yellow" />}
             emptySymbol={<BsFillStarFill color="black" />}
             readonly
@@ -42,7 +49,7 @@ const BookDisplay = (props) => {
         </div>
         <div>
           <Rating
-            initialRating={props?.reviewInfo?.spice}
+            initialRating={reviewData?.spice}
             fullSymbol={<FaPepperHot color="red" />}
             emptySymbol={<FaPepperHot color="black" />}
             readonly
