@@ -23,8 +23,8 @@ const BookDisplay = (props) => {
       bg="dark"
       text="light"
       onClick={onReviewClicked}
-      className="shadow-lg border-2px mt-2 align-items-center"
-      style={{ width: "20rem" }}
+      className="shadow-lg border-2px m-2 align-items-center"
+      style={{ width: "20rem", height: "55rem" }}
     >
       <Card.Img
         variant="top"
@@ -39,22 +39,22 @@ const BookDisplay = (props) => {
       </Card.Text>
       <Card.Body>
         {props?.reviewInfo?.briefReview}{" "}
-        <div>
+        <Card.Body>
           <Rating
             initialRating={reviewData?.rating}
             fullSymbol={<BsFillStarFill color="yellow" />}
             emptySymbol={<BsFillStarFill color="black" />}
             readonly
           />
-        </div>
-        <div>
-          <Rating
-            initialRating={reviewData?.spice}
-            fullSymbol={<FaPepperHot color="red" />}
-            emptySymbol={<FaPepperHot color="black" />}
-            readonly
-          />
-        </div>
+          <div className="mt-2">
+            <Rating
+              initialRating={reviewData?.spice}
+              fullSymbol={<FaPepperHot color="red" />}
+              emptySymbol={<FaPepperHot color="black" />}
+              readonly
+            />
+          </div>
+        </Card.Body>
       </Card.Body>
     </Card>
   );

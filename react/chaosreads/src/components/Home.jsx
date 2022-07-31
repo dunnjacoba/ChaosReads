@@ -27,10 +27,12 @@ const Home = () => {
   };
   return (
     <>
-      <Container fluid className="m-6 p-4">
-        <Row>{reviews.map(MapReviews)}</Row>
+      <Container fluid className="m-6 p-4 bg-light">
+        <Row md="8" lg="12">
+          {reviews.map(MapReviews)}
+        </Row>
       </Container>
-      <Container>
+      <Container className="m-4 p-2">
         <Row>
           <Card>
             <Card.Body>
