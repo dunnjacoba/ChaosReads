@@ -12,12 +12,13 @@ code {
     monospace;
 }
 
-.footer{
+.footer {
   position: "absolute";
   bottom: 1px;
 }
 
-.navbar{
+.navbar {
   position: "sticky";
-  top: -1px;
+  top: 0;
+  width: 100%;
 }
